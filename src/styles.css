@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.Header {
+  padding: 1px;
+  margin-bottom: 5px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+}
+
+input {
+  width: 100%;
+}
+
+button {
+  width: 100%;
+}
