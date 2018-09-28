@@ -23,40 +23,44 @@ function Header() {
 }
 
 class Feed extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      posts: []
+      posts: ["Post one", "Post two", "post three"]
     };
+  }
+  handleAddPost(e) {
+    e.preventDefault;
+    alert("Post added");
   }
   render() {
     return (
       <div className="container">
-        <AddPost />
+        <AddPost AddPost={this.handleAddPost} />
         <Post posts={this.state.posts} />
       </div>
     );
   }
 }
 
-class AddPost extends React.Component {
+class AddPost extends Feed {
   render() {
     return (
-      <div className="row">
-        <div className="col-sm-8">
-          <input
-            className="form-control"
-            type="text"
-            name="post"
-            placeholder="What's up today?"
-          />
+      <form onSubmit={this.handleAddPost}>
+        <div className="row">
+          <div className="col-sm-8">
+            <input
+              className="form-control"
+              type="text"
+              name="userPost"
+              placeholder="What's up today?"
+            />
+          </div>
+          <div class="col-sm-4">
+            <button className="btn btn-primary">Post</button>
+          </div>
         </div>
-        <div class="col-sm-4">
-          <button className="btn btn-primary" onClick={this.handleAdd}>
-            Post
-          </button>
-        </div>
-      </div>
+      </form>
     );
   }
 }
@@ -67,15 +71,7 @@ class Post extends React.Component {
       <div>
         <div class="card my-2">
           <div class="card-body" />
-          My first Post!
-        </div>
-        <div class="card my-2">
-          <div class="card-body" />
-          My Second Post!
-        </div>
-        <div class="card my-2">
-          <div class="card-body" />
-          My Third Post!
+          {this.props.posts.map(posts => <li>{posts}</li>)}
         </div>
       </div>
     );
